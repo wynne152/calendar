@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	text-align:center;
+}
+#contain{
+	margin:0 auto;
+	width:300px;
+	height:450px;
+	background:#FFF;
+	padding:30px;
+}
+#calender{
+	width:288px;
+	height:450px;
+}
+#head{
+	height:110px;
+	background:#F99;
+}
+
+#month{
+	padding:30px;
+	width:140px;
+	float:left;
+	height:50px;
+}
+#prev,#next{
+	float:left;
+	width:20px;
+	height:18px;
+	padding:45px 10px;
+}
+#prev span,#next span{
+	background:url(images/calender-arw.png); /*ie6图片背景不透明*/
+	background-repeat:no-repeat;
+	width:10px;
+	height:14px;
+	display:block;
+}
+#next span{
+background-position:right;
+}
+ul li{
+	list-style:none;
+	border-left:1px solid #000;
+	border-bottom:1px solid #000;
+	width:20px;
+	height:30px;
+	float:left;
+	text-align:center;
+	padding:10px;
+	font-family:"Courier New", Courier, monospace;
+}
+#end{
+	border-right:1px solid #000;
+}
+ul li:hover{
+	background:#F99;
+	color:#FFF;
+}
+
+.active{
+	background:#F99;
+}
+</style>
+
+<script>
+window.onload=function(){
+	var oSpan=document.getElementsByTagName("span");
+	var oPrev=oSpan[0];	//向前
+	var oNext=oSpan[1];	//向后
+	var myDate=new Date();
+	//获取当前时间
+	var curMonth=myDate.getMonth();
+	var curYear=myDate.getFullYear();
+	var curDay=myDate.toLocaleDateString();;
+	gTime(curMonth);
+				
+	//getYear()只是1900—1999之间是四位数，1999之后的时间返回的是与1900的差
+	//getMonth()取得的月份要加一
+	
+	//翻页
+	oPrev.onclick=function(){
+	gTime(--curMonth);
+	}
+	oNext.onclick=function(){
+		gTime(++curMonth);
+	}	
+//日期
+	function gTime(m){		
+		var oDate=document.getElementById("month");
+		var oLi=document.getElementsByTagName("li");
+		var activeDate = new Date(curYear,m, 1);
+		var year = activeDate.getFullYear();
+		var month = activeDate.getMonth(); 	
+		var n = 1 - activeDate.getDay();
+			if (n == 1) {
+				n = -6;
+			} 
+		activeDate.setDate(n); 
+
+		for (var i = 7; i < oLi.length; i++) {
+			 var date = activeDate.getDate(); 
+			 var nowDate=activeDate.toLocaleDateString();
+			 oLi[i].innerHTML = date;
+			 if (activeDate.getMonth() != month) {
+                oLi[i].style.color = "#ccc";  //不是本月的天数颜色变成灰色		
+			}else if(nowDate==curDay){ //本日变成高亮
+				oLi[i].style.backgroundColor="#F99";
+			}else{
+				oLi[i].style.backgroundColor="#fff";
+			}
+			
+			 activeDate.setDate(date + 1);
+		}
+		
+		oDate.innerHTML=(month+1)+" "+curYear;
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="contain">
+		<div id="calender">
+		<div id="head">
+        	<div id="prev"><span></span></div>
+        	<h3 id="month"></h3>
+        	<div id="next"><span></span></div>
+   	 	</div>
+   	 	<ul>
+    		<li>S</li>
+        	<li>M</li>
+        	<li>T</li>
+        	<li>W</li>
+        	<li>T</li>
+        	<li>F</li>
+        	<li id="end">S</li>
+   		</ul>
+        <ul>
+    		<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li id="end"></li>
+   		</ul>
+        <ul>
+    		<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li id="end"></li>
+   		</ul>
+        <ul>
+    		<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li id="end"></li>
+   		</ul>
+        <ul>
+    		<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li id="end"></li>
+   		</ul>
+        <ul>
+    		<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li id="end"></li>
+   		</ul>
+        <ul>
+    		<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li id="end"></li>
+   		</ul>
+       </div>
+</div>
+</body>
+</html>
