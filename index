@@ -68,6 +68,7 @@ ul li:hover{
 	background:red;
 	color:#FFF;
 }
+.active{background:#f99;}
 </style>
 
 <script>
@@ -112,9 +113,7 @@ window.onload=function(){
 			 if (activeDate.getMonth() != month) {
                 oLi[i].style.color = "#ccc";  //不是本月的天数颜色变成灰色		
 			}else if(nowDate==curDay){ //本日变成高亮
-				oLi[i].style.backgroundColor="#F99";
-			}else{
-				oLi[i].style.backgroundColor="#fff";
+				oLi[i].className="active";
 			}
 			
 			 activeDate.setDate(date + 1);
