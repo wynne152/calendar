@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>日历</title>
 <style>
 
 *{
@@ -65,12 +65,8 @@ ul li{
 	border-right:1px solid #000;
 }
 ul li:hover{
-	background:#F99;
+	background:red;
 	color:#FFF;
-}
-
-.active{
-	background:#F99;
 }
 </style>
 
@@ -205,4 +201,3 @@ window.onload=function(){
 </div>
 </body>
 </html>
-Enter file contents here
