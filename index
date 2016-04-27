@@ -40,15 +40,23 @@ body{
 	height:18px;
 	padding:45px 10px;
 }
-#prev span,#next span{
-	background:url(images/calender-arw.png); /*ie6图片背景不透明*/
-	background-repeat:no-repeat;
-	width:10px;
-	height:14px;
+#prev span{
 	display:block;
+	height:0px;
+	border:10px solid #eee;
+	border-color:transparent #eee transparent transparent;
+	line-height: 0px;
+	border-style:dashed solid dashed dashed;
+	font-size:0;
 }
 #next span{
-background-position:right;
+	display:block;
+	height:0px;
+	border:10px solid #eee;
+	border-color:transparent  transparent transparent #eee;
+	line-height: 0px;
+	border-style:dashed dashed dashed solid;
+	font-size:0;
 }
 ul li{
 	list-style:none;
