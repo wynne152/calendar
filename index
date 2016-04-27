@@ -122,6 +122,8 @@ window.onload=function(){
                 oLi[i].style.color = "#ccc";  //不是本月的天数颜色变成灰色		
 			}else if(nowDate==curDay){ //本日变成高亮
 				oLi[i].className="active";
+			}else{
+				oLi[i].className="";
 			}
 			
 			 activeDate.setDate(date + 1);
