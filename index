@@ -129,7 +129,7 @@ window.onload=function(){
 			 activeDate.setDate(date + 1);
 		}
 		
-		oDate.innerHTML=(month+1)+" "+curYear;
+		oDate.innerHTML=(month+1)+" "+year;
 	}
 }
 </script>
